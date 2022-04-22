@@ -4,13 +4,20 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{% block title %}The BD Times{% endblock  %}</title>
+        <title>{% block title %}The Dhaka Times{% endblock  %}</title>
         <link rel="icon" type="image/x-icon" href="{% block link %} https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0GKMjl7r9aCnRREu6lcDW4l0m62SzjvO_HA&usqp=CAU{% endblock %} ">
     </head>
     <body>
         {% block body %}
         
-        <h1 class="p-5 m-5"> {{news}} </h1>
+        <div class="p-5 m-5"> 
+        {% for new in news %}
+        <img src="{{new.news_image}}" height="150px" />
+        <p class="p-1"> {{ new.id}}. {{new.news_decription}}, {{new.news_author}}..... </p>
+         <a href={% url 'news_details' new.id %} class="btn btn-success"> More </a> <hr> <br>
+        {% endfor %}
+            
+       </div>
         {% endblock  %}
         
     </body>

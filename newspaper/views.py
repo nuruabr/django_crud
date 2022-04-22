@@ -9,3 +9,11 @@ def home_page_news(request):
         'news': news,
     }
     return render(request, 'newspaper/home.html', context)
+
+
+def details(request, news_id):
+     details_news = Newspaper.objects.get(pk=news_id)
+     context = {
+         'details_news': details_news,
+     }
+     return render(request, 'newspaper/detail.html', context)
