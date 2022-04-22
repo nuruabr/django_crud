@@ -1,9 +1,11 @@
 from django.shortcuts import render
-
+from .models import Newspaper
 # Create your views here.
 
 def home_page_news(request):
+    news = Newspaper.objects.all()
+    
     context = {
-        'hello': "THIS IS HOME PAGE",
+        'news': news,
     }
     return render(request, 'newspaper/home.html', context)
