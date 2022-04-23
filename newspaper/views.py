@@ -31,9 +31,15 @@ def creat_news(request):
         return redirect('home_page_news')
  
     return render(request, "newspaper/creat_item.html", {"form": form})
+
+
+def update_news(request, id):
+    update_news_item =Newspaper.objects.get(id=id)
+    form = CreatFormItem(request.POST or None, instance=update_news_item)
+    
+    if form.is_valid():
+        form.save()
+        return redirect('home_page_news')
  
- 
- 
- 
- 
+    return render(request, 'newspaper/creat_item.html', {"form": form, "update_news_item":update_news_item})
  

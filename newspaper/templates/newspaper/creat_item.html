@@ -1,8 +1,11 @@
-<form method = "POST">
-    {% csrf_token %}
+{% extends 'newspaper/base.html' %}
+{% block body %}
 
-    <div class="m-5 p-5">
+<form method="POST">
+    {% csrf_token %} 
+    <div class="p-5 m-4">
         {{form}}
     </div>
-    <button type="submit">Save</button>
+    <button type="submit"> Save </button>
 </form>
+{% endblock body %}
