@@ -43,3 +43,11 @@ def update_news(request, id):
  
     return render(request, 'newspaper/creat_item.html', {"form": form, "update_news_item":update_news_item})
  
+def delete_news(request, id):
+    delete_news_item = Newspaper.objects.get(id=id)
+    
+    if request.method =='POST':
+         delete_news_item.delete()
+         return redirect('home_page_news')
+     
+    return render(request, 'newspaper/delete_news.html', {"delete_news_item":delete_news_item})

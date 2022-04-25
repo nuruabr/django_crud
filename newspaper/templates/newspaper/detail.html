@@ -10,5 +10,7 @@
    <div class="col-md-6">
     <p>{{details_news.id}}. </br> {{details_news.news_decription}} </p>
   </div>
+
+  <a href="{% url "delete_news_item" details_news.id %}" class="btn btn-success">Delete</a>
 </div>
 {% endblock%}
